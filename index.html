@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="scripts/index.js" defer></script>
+    <title>Profit or Loss in Stocks</title>
+</head>
+<body>
+            <main>
+                <h1>
+                    Profit or Loss in Stocks
+                </h1>
+                <p>
+                    Check how much you make profit or how much you loss for stocks you purchased without real time system. Give stock buying price, how many stocks brought and today's price and get to know about your forecast.
+                </p>
+                <div class="input-div">   
+                        <label for="initialPrice">Initial Price</label>
+                        <input type="number" min="1" id="initialPrice" placeholder="Add initial price here...">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" min="1" id="quantity" placeholder="Add stocks quantity here">
+                        <label for="currentPrice">Current Price</label>
+                        <input type="number" min="1" id="currentPrice" placeholder="Add today's price of stock here...">
+                </div>
+                <button type="submit" id="showForecast">Check My Forecast</button>
+                <div class="output-div">
+                        <h3 id="message">
+
+                        </h3>
+                </div>
+            </main>
+</body>
+</html>
