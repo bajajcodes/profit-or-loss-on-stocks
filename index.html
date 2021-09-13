@@ -10,21 +10,23 @@
 </head>
 <body>
             <main>
-                <h1>
-                    Profit or Loss in Stocks
-                </h1>
-                <p>
-                    Check how much you make profit or how much you loss for stocks you purchased without real time system. Give stock buying price, how many stocks brought and today's price and get to know about your forecast.
-                </p>
-                <div class="input-div">   
-                        <label for="initialPrice">Initial Price</label>
-                        <input type="number" min="1" id="initialPrice" placeholder="Add initial price here...">
-                        <label for="quantity">Quantity</label>
-                        <input type="number" min="1" id="quantity" placeholder="Add stocks quantity here">
-                        <label for="currentPrice">Current Price</label>
-                        <input type="number" min="1" id="currentPrice" placeholder="Add today's price of stock here...">
+                <div>
+                    <h1>
+                        Profit or Loss in Stocks
+                    </h1>
+                    <p>
+                        Check how much you make profit or how much you loss for stocks you purchased without real time system. Give stock buying price, how many stocks brought and today's price and get to know about your forecast.
+                    </p>
                 </div>
-                <button type="submit" id="showForecast">Check My Forecast</button>
+                <div class="input-div">   
+                        <!-- <label for="initialPrice">Intial Price</label> -->
+                        <input type="number" min="1" id="initialPrice" placeholder="Enter cost price here..." name="Intial Price">
+                        <!-- <label for="quantity">Quantity</label> -->
+                        <input type="number" min="1" id="quantity" name="Quantity" placeholder="Enter stocks quantity here" step="1">
+                        <!-- <label for="currentPrice">Current Price</label> -->
+                        <input type="number" min="1" id="currentPrice" name="Current Price" placeholder="Enter today's price  here...">
+                        <button type="submit" id="tellMe">Give me Update</button>
+                </div>
                 <div class="output-div">
                         <h3 id="message">
 
