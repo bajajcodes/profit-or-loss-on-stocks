@@ -3,42 +3,66 @@ const quantityEle = document.querySelector("#quantity");
 const currentPriceEle = document.querySelector("#currentPrice");
 const tellMeBtn = document.querySelector("#tellMe");
 const message = document.querySelector("#message");
+const output = document.querySelector(".output-div");
+
+
+function updateOutputDivBG(coolor,fontCoolor){
+    output.style['borderRadius'] = '10px';
+    output.style.border = '5px solid black';
+    output.style.padding = '2rem 1rem';
+    output.style['color'] = fontCoolor;
+    output.style['fontWeight'] = 'bold';
+    output.style['fontSize'] = 'large';
+    output.style['backgroundColor'] = coolor;
+}
+
 
 function noLossNoProfit(message){
+    updateOutputDivBG('#f9c74f','black')
     sendUpdate(message);
 }
 
 function lossMessage(loss,lossPercentage){
 
     let message = `Your loss is ${loss} and loss percentage is ${lossPercentage}% `;
+    let coolor = '#';
 
     if(lossPercentage < 26){
+        coolor += 'dc2f02';
         message +='😶';
     }else if(lossPercentage  < 51){
+        coolor += 'd00000';
         message += '😟'
     }else if(lossPercentage < 76){
+        coolor += '9d0208';
         message += '😰';
     }else{
+        coolor += '6a040f';
         message += '😭';
     }
-    sendUpdate('');
+    updateOutputDivBG(coolor,'white');
     sendUpdate(message);
 }
 
 function profitMessage(profit,proftPercentage){
     let message = `Your profit is ${profit} and profit percentage is ${proftPercentage}% `;
+    let coolor= '#';
 
     if(proftPercentage  > 75){
+        coolor += '007200';
         message +='💸 🤭';
     }else if(proftPercentage > 50){
+        coolor += '008000';
         message += '💸 😍'
     }else if(proftPercentage > 25){
+        coolor += '38b000';
         message += '💸 😂';
     }else{
+        coolor += '70e000';
         message += '💸  😄';
     }
 
-    sendUpdate('');
+    updateOutputDivBG(coolor,'black ');
     sendUpdate(message);
 }
 
@@ -47,7 +71,7 @@ function calculateProfitandLoss(intialPrice,currentPrice,quantity){
     let sellingPrice = parseToFloat(currentPrice.value);
     
     quantity = Number(quantity.value);
-    // console.log({sellingPrice},{costPrice},{quantity});
+    // console.log({sellingPrice},{costPrice},{quantity},typeof sellingPrice);
     
     if(costPrice > sellingPrice){
         let loss = parseToFloat(costPrice - sellingPrice);
@@ -55,19 +79,18 @@ function calculateProfitandLoss(intialPrice,currentPrice,quantity){
         let totalLoss = parseToFloat(loss*quantity);
         lossMessage(totalLoss,lossPerc);
         // console.log({loss},{lossPerc},{totalLoss});
-    }else if(costPrice == sellingPrice){
-            noLossNoProfit('You made no loss 😑 no profit 👌')
-    }else{
+    }else if(sellingPrice > costPrice){
         let profit = parseToFloat(sellingPrice - costPrice);
         let profitPerc = parseToFloat((profit/costPrice)*100);
         let totalProfit = parseToFloat(profit * quantity);
         profitMessage(totalProfit,profitPerc);
         // console.log({profit},{profitPerc},{totalProfit});
-    }
+    }else {noLossNoProfit('You made no loss 😑 no profit 👌')
+}
 }
 
 function parseToFloat(value){
-    return parseFloat(value).toFixed(2);
+    return Number(parseFloat(value).toFixed(2));
 }
 
 function sendUpdate(msg){
