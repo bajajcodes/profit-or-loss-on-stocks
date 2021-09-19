@@ -5,6 +5,15 @@ const tellMeBtn = document.querySelector("#tellMe");
 const message = document.querySelector("#message");
 const output = document.querySelector(".output-div");
 
+function updateOutputDivWOBG(){
+    output.style['borderRadius'] = '0px';
+    output.style.border = 'none';
+    output.style.padding = 'inherit';
+    output.style['color'] = 'black';
+    output.style['fontWeight'] = 'normal';
+    output.style['fontSize'] = 'normal';
+    output.style['backgroundColor'] = 'white';
+}
 
 function updateOutputDivBG(coolor,fontCoolor){
     output.style['borderRadius'] = '10px';
@@ -71,20 +80,17 @@ function calculateProfitandLoss(intialPrice,currentPrice,quantity){
     let sellingPrice = parseToFloat(currentPrice.value);
     
     quantity = Number(quantity.value);
-    // console.log({sellingPrice},{costPrice},{quantity},typeof sellingPrice);
     
     if(costPrice > sellingPrice){
         let loss = parseToFloat(costPrice - sellingPrice);
         let lossPerc = parseToFloat((loss/costPrice)*100);
         let totalLoss = parseToFloat(loss*quantity);
         lossMessage(totalLoss,lossPerc);
-        // console.log({loss},{lossPerc},{totalLoss});
     }else if(sellingPrice > costPrice){
         let profit = parseToFloat(sellingPrice - costPrice);
         let profitPerc = parseToFloat((profit/costPrice)*100);
         let totalProfit = parseToFloat(profit * quantity);
         profitMessage(totalProfit,profitPerc);
-        // console.log({profit},{profitPerc},{totalProfit});
     }else {noLossNoProfit('You made no loss 😑 no profit 👌')
 }
 }
@@ -96,7 +102,27 @@ function parseToFloat(value){
 function sendUpdate(msg){
     message.innerText = msg;
 }
-  
+ 
+function isZeroOrNegative(ele){
+    sendUpdate('');
+    let val = parseToFloat(ele.value);
+    if(val  === 0){
+        updateOutputDivWOBG();
+        sendUpdate(`${ele.name} can not be zero.`);
+        ele.value = "";
+        return true;
+    }
+
+    if(val  < 0){
+        updateOutputDivWOBG();
+        sendUpdate(`${ele.name} can not be negative number.`);
+        ele.value = "";
+        return true;
+    }
+
+    return false;
+}
+
 function isFloat(ele){
     sendUpdate('');
     let n = parseToFloat(ele.value);
@@ -104,6 +130,7 @@ function isFloat(ele){
     if(!res){
         return false;
     }
+    updateOutputDivWOBG();
     sendUpdate(`${ele.name} can only be a whole number.`);
     ele.value = "";
     return true;
@@ -112,26 +139,33 @@ function isFloat(ele){
 function isEmptyOrNan(ele){
     sendUpdate('');
     let val = parseToFloat(ele.value);
-    // console.log({val});
     if(!isNaN(val)){
         return false;
     }
-    // console.log({ele});
-    sendUpdate(`${ele.name} cannot be empty or other than a number type.`);
+    updateOutputDivWOBG();
+    sendUpdate(`${ele.name} cannot be empty.`);
+    ele.value = "";
     return true;
 }
 
 function tellMe(){
     sendUpdate("");
+    updateOutputDivWOBG();
     let intialPrice = intialPriceELe;
     let quantity = quantityEle;
     let currentPrice = currentPriceEle;
 
-    if(!isEmptyOrNan(intialPrice)){
-        if(!isEmptyOrNan(quantity)){
-            if(!isFloat(quantity)){
-                if(!isEmptyOrNan(currentPrice)){
-                        calculateProfitandLoss(intialPrice,currentPrice,quantity);
+    if( (!isEmptyOrNan(intialPrice))){
+        if(!isZeroOrNegative(intialPrice)){
+            if( (!isEmptyOrNan(quantity))){
+                if(!isZeroOrNegative(quantity)){
+                    if(!isFloat(quantity)){
+                        if( (!isEmptyOrNan(currentPrice))){
+                            if(!isZeroOrNegative(currentPrice)){
+                                calculateProfitandLoss(intialPrice,currentPrice,quantity);   
+                            }
+                        }
+                    }
                 }
             }
         }
