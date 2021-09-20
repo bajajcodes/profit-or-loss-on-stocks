@@ -84,11 +84,124 @@ button{
     border:none;
 }
 
-/* .output-div{
-    border-radius: 10px;
-    border:5px solid black;
-    padding:2rem 1rem;
-    color:white;
-    font-weight: bold;
-    font-size: large;
-} */
+@media (max-width:1200px){
+    .container-centered{
+        max-width: 50%;
+    }
+
+    div input{
+        width: 60%;
+        margin:auto;
+        box-shadow: -3px 3px black;
+        font-size: medium;
+    }
+
+    div button{
+        width: 50%;
+        box-shadow: -4px 4px black;
+        font-size: large;
+    }
+
+    div p{
+        text-align: left;
+    }
+
+}
+
+@media (max-width:992px){
+
+    .container-centered{
+        max-width: 60%;
+    }
+
+    div input{
+        width: 60%;
+        margin:auto;
+        box-shadow: -3px 3px black;
+        font-size: medium;
+    }
+
+    div button{
+        width: 50%;
+        box-shadow: -4px 4px black;
+        font-size: large;
+    }
+
+    div p{
+        text-align: left;
+    }
+    
+}
+
+@media (max-width:768px){
+    
+    .container-centered{
+        max-width: 60%;
+    }
+
+    div input{
+        width: 80%;
+        margin:auto;
+        box-shadow: -3px 3px black;
+        font-size: medium;
+    }
+
+    div button{
+        width: 60%;
+        box-shadow: -4px 4px black;
+        font-size: large;
+    }
+
+    div p{
+        text-align: left;
+    }
+
+}
+
+@media (max-width:576px){
+    
+    .container-centered{
+        max-width: 100%;
+    }
+
+    .container{
+        border:2px solid rgb(0, 0, 0);
+        padding:1rem .5rem;
+        display: flex;
+        flex-direction: column;
+        gap:1ch;
+        box-shadow: -5px 5px black;
+    }
+
+    div{
+        border: 2px solid black;
+        display:flex;
+        flex-direction: column;
+        padding:.5rem;
+        gap:1ch;
+        box-shadow: -7px 4px black;
+    }
+
+    div h1{
+        text-align: center;
+    }
+    
+    div p{
+        text-align: left;
+    }
+
+    div input{
+        width: 90%;
+        margin:auto;
+        box-shadow: -1px 1px black;
+    }
+
+    div button{
+        width: 80%;
+        border:2px solid black;
+        box-shadow: -2px 2px black;
+        font-size: large;
+
+    }
+
+}
