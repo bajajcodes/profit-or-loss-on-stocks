@@ -1,5 +1,14 @@
 # Profit or Loss on Stocks
 
+## List of Contents
+- Description
+- Input
+- Output
+- Processing
+- Screenshots
+- Link
+
+
 > Check profit earned or loss gained on stocks bought. Enter required inputs stated below, click on `Give Me Update` button and get to know outcome of your bet. App output section theme get's changed on basis of percentage of profit earned or loss gained. Click on the link below to laugh or cry.
 
 <br>
