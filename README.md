@@ -26,9 +26,13 @@ price, second number of stocks bought and last current or today's price of stock
 
 > **Screenshots**
 >> ![Initial(app load) image not available](https://github.com/shmbajaj/profit-or-loss-on-stocks/blob/main/screenshots/initial.png?raw=true)
+>>
 >> ![Profit image not available](https://github.com/shmbajaj/profit-or-loss-on-stocks/blob/main/screenshots/profit.png?raw=true)
+>>
 >> ![No Profit No Loss image not available](https://github.com/shmbajaj/profit-or-loss-on-stocks/blob/main/screenshots/no_profit_loss.png?raw=true)
+>>
 >> ![Loss image not available](https://github.com/shmbajaj/profit-or-loss-on-stocks/blob/main/screenshots/loss.png?raw=true)
+>>
 
 <br>
 
